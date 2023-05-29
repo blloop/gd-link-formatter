@@ -9,18 +9,23 @@
     <title>Document</title>
 </head>
 <body>
-    <p class="title"> Google Drive Link Formatter </p>
+    <span></span>
+    <p class="title"> 
+        Google Drive Link Formatter
+    </p>
     <div class="formatter">
-        <div class="subsection">
+        <section>
             <p class="subtitle"> 1&rpar; Paste Your Link Here </p>
-            <input type="text" id="input" oninput="convert()">
-        </div>
-        <div class="subsection">
+            <input type="text" id="input" rows="2" oninput="convert()">
+        </section>
+        <section>
             <p class="subtitle"> 2&rpar; Get Your New Link Here </p>
-            <input type="text" id="output" readonly>
-            <button onclick="copy()">Copy</button>
+            <div class="row">
+                <input type="text" id="output" rows="2" readonly>
+                <button onclick="copy()"><img id="copy" src="copy.svg"></button>
+            </div>            
             <p class="details" id="status"> Please paste your link above </p>
-        </div>
+        </section>
     </div>
 </body>
 </html>
