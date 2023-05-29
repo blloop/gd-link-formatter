@@ -14,10 +14,12 @@
         <div class="subsection">
             <p class="subtitle"> 1&rpar; Paste Your Link Here </p>
             <input type="text" id="input" oninput="convert()">
-        </div>        
+        </div>
         <div class="subsection">
             <p class="subtitle"> 2&rpar; Get Your New Link Here </p>
             <input type="text" id="output" readonly>
+            <button onclick="copy()">Copy</button>
+            <p class="details" id="status"> Please paste your link above </p>
         </div>
     </div>
 </body>
