@@ -12,6 +12,7 @@
     <span></span>
     <p class="title"> 
         Google Drive Link Formatter
+        <a href="https://github.com/blloop/gd-link-formatter" target="_blank"><img class="link" src="github.svg"></a>
     </p>
     <div class="formatter">
         <section>
@@ -24,7 +25,16 @@
                 <input type="text" id="output" rows="2" readonly>
                 <button onclick="copy()"><img id="copy" src="copy.svg"></button>
             </div>            
-            <p class="details" id="status"> Please paste your link above </p>
+            <p class="details" id="status"> &lt;Please paste your link above&gt; </p>
+        </section>
+        <section>
+            <p class="subtitle"> About this webpage <b id="arrow" data-on="9650" onclick="toggle()">&#9660;</b> </p>
+            <div id="instruct" hidden>
+                <p> This webpage formats Google Drive links for you so that their contents
+                    can be used in external websites. <br> For example, formatting a link to 
+                    a Google Drive Image allows you to link it to your website without
+                    it being blocked by CORB. </p>
+            </div>
         </section>
     </div>
 </body>
