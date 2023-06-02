@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png" type="image/gif" sizes="16x16">
     <script src="script.js"></script>
-    <title>Document</title>
+    <title> GDLF </title>
 </head>
 <body>
     <span></span>
@@ -16,25 +17,43 @@
     </p>
     <div class="formatter">
         <section>
-            <p class="subtitle"> 1&rpar; Paste Your Link Here </p>
+            <p class="subtitle"> &lpar;1&rpar; Paste Your Link Here </p>
             <div class="row">
                 <input type="text" id="input" rows="2" oninput="convert()">
                 <button onclick="del()"><img id="clear" src="clear.svg"></button>
             </div>    
         </section>
+        <div id="pointer">
+            <div id="box"></div>
+            <div id="box-2"></div>
+            <div id="triangle"></div>
+            <div id="triangle-2"></div>
+        </div>
         <section>
-            <p class="subtitle"> 2&rpar; Get Your New Link Here </p>
+            <p class="subtitle"> &lpar;2&rpar; Get Your New Link Here </p>
             <div class="row">
                 <input type="text" id="output" rows="2" readonly>
                 <button onclick="copy()"><img id="copy" src="copy.svg"></button>
             </div>            
             <p class="details" id="status"> &lt;Please paste your link above&gt; </p>
         </section>
-        <section>
-            <p class="subtitle"> About this webpage <b id="arrow" data-on="9650" onclick="toggle()">&#9660;</b> </p>
-            <div id="instruct" hidden>
+        <section class="small">
+            <p class="subtitle"> How to use this website
+                <b id="arrow-1" data-on="9650" onclick="toggle('about', 'arrow-1')">&#9660;</b> 
+            </p>
+            <div id="about" class="info" hidden>
+                <p> Obtain a share link from your Google Drive media (image, video, etc) and copy
+                    it to your clipboard. <br><br> Then, paste it into the first line
+                    and the converted link will be generated automatically. </p>
+            </div>
+        </section>
+        <section class="small">
+            <p class="subtitle"> About this webpage 
+                <b id="arrow-2" data-on="9650" onclick="toggle('instruct', 'arrow-2')">&#9660;</b> 
+            </p>
+            <div id="instruct" class="info" hidden>
                 <p> This webpage formats Google Drive links for you so that their contents
-                    can be used in external websites. <br><br> For example, formatting a link to 
+                    can be embedded in external websites. <br><br> For example, formatting a link to 
                     a Google Drive Image allows you to link it to your website without
                     it being blocked by CORB. </p>
             </div>

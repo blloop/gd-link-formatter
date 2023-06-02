@@ -11,6 +11,7 @@ function convert() {
   let output = document.getElementById("output");
   let link = id ? "https://drive.google.com/uc?id=" + id : '';
   output.value = link; 
+  output.style.backgroundColor = (id ? 'white' : '#c8c8c8')
 
   let status = document.getElementById("status");
   status.innerText = (id ? 'Successfully converted' : 
@@ -34,10 +35,10 @@ function del() {
 }
 
 // Toggles instruction text
-function toggle() {
-  let subtext = document.getElementById("instruct");
+function toggle(section, button) {
+  let subtext = document.getElementById(section);
   subtext.hidden = !subtext.hidden;
-  let arrow = document.getElementById("arrow");
+  let arrow = document.getElementById(button);
   arrow.innerHTML = `&#${arrow.dataset.on}`;
   arrow.dataset.on = 19310 - arrow.dataset.on;
 }
