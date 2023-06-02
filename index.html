@@ -17,7 +17,10 @@
     <div class="formatter">
         <section>
             <p class="subtitle"> 1&rpar; Paste Your Link Here </p>
-            <input type="text" id="input" rows="2" oninput="convert()">
+            <div class="row">
+                <input type="text" id="input" rows="2" oninput="convert()">
+                <button onclick="del()"><img id="clear" src="clear.svg"></button>
+            </div>    
         </section>
         <section>
             <p class="subtitle"> 2&rpar; Get Your New Link Here </p>
@@ -31,7 +34,7 @@
             <p class="subtitle"> About this webpage <b id="arrow" data-on="9650" onclick="toggle()">&#9660;</b> </p>
             <div id="instruct" hidden>
                 <p> This webpage formats Google Drive links for you so that their contents
-                    can be used in external websites. <br> For example, formatting a link to 
+                    can be used in external websites. <br><br> For example, formatting a link to 
                     a Google Drive Image allows you to link it to your website without
                     it being blocked by CORB. </p>
             </div>

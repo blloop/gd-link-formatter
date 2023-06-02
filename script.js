@@ -8,12 +8,15 @@ function convert() {
       null) : 
     null
   );
-  let output = id ? "https://drive.google.com/uc?id=" + id : '';
-  document.getElementById("output").value = output; 
-  document.getElementById("status").innerText = (id ? 'Successfully converted' : 
+  let output = document.getElementById("output");
+  let link = id ? "https://drive.google.com/uc?id=" + id : '';
+  output.value = link; 
+
+  let status = document.getElementById("status");
+  status.innerText = (id ? 'Successfully converted' : 
     (input ? 'Invalid link!' : '<Please paste your link above>')
   );
-  document.getElementById("status").style.color = (id ? 'green' : 
+  status.style.color = (id ? 'green' : 
     (input ? 'red' : 'black')
   );
 }
@@ -24,12 +27,17 @@ function copy() {
   navigator.clipboard.writeText(output);
 }
 
+// Clears the input field
+function del() {
+  document.getElementById("input").value = '';
+  convert();
+}
+
 // Toggles instruction text
 function toggle() {
   let subtext = document.getElementById("instruct");
   subtext.hidden = !subtext.hidden;
   let arrow = document.getElementById("arrow");
-  console.log(`&#${arrow.dataset.on}`);
   arrow.innerHTML = `&#${arrow.dataset.on}`;
   arrow.dataset.on = 19310 - arrow.dataset.on;
 }

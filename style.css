@@ -19,7 +19,7 @@ body {
   background-color: rgb(156, 156, 156);
 }
 
-input, button, #instruct {
+.row, #instruct {
   margin-top: 12px;
 }
 
