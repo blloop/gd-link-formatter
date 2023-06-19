@@ -1,6 +1,7 @@
 :root {
   --light-brown: #e8b973;
   --dark-brown: #b27f31;
+  --grey: #9c9c9c;
 }
 
 * {
@@ -47,6 +48,13 @@ button {
 
 .small {
   width: 58%;
+}
+
+.info {
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #9c9c9c;
+  background-color: #ebebeb;
 }
 
 .row, .info {
