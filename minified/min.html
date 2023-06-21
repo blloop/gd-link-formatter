@@ -48,29 +48,29 @@ button {
 b {
   cursor: pointer;
 }
-button:hover, #link:hover {
+button:hover, #l:hover {
   background-color: #ff9b04;
 }
-.small {
+.s {
   width: 700px;
   max-width: 90vw;
 }
-.small div {
+.s div {
   padding: 12px;
   border-radius: 12px;
   border: 2px solid #9c9c9c;
   background-color: #ebebeb;
 }
-.row, .small div, #status {
+.r, .s div, #s {
   margin-top: 12px;
 }
-.title {
+#ti {
   font-size: 36px;
 }
-.subtitle {
+.su {
   font-size: 24px;
 }
-.title, section {
+#ti, section {
   width: 80%;
   margin: 0 auto 24px;
   padding: 24px;
@@ -78,46 +78,46 @@ button:hover, #link:hover {
   border: 4px solid #b27f31;
   background-color: #e8b973;
 }
-.triangle {
+.tr {
   width: 0;
   height: 0;
   border-left: 60px solid transparent;
   border-right: 60px solid transparent;
   position: relative;
 }
-.triangle-1 {
+.t1 {
   border-top: 60px solid #b27f31;
   top: -6px;
   right: 4px;
 }
-.triangle-2 {
+.t2 {
   border-top: 60px solid #e8b973;
   top: -66px;
   left: 4px;
 }
-#link {
+#l {
   position: absolute;
   cursor: pointer;
   height: 40px;
   border-radius: 20px;
   margin-left: calc(min(120px, 10%));
 }
-#output {
+#o {
   background-color: #c8c8c8;
 }
-#pointer {
-  margin-bottom: 36px;
+#p {
+  margin-bottom: -36px;
 }
-#pointer * {
+#p * {
   margin: 0 auto;
 }
-#box {
+#b1 {
   width: 60px;
   height: 60px;
   background-color: #e8b973;
   border-left: 6px solid #b27f31;
 }
-#box-2 {
+#b2 {
   width: 8px;
   height: 6px;
   background-color: #b27f31;
@@ -125,7 +125,7 @@ button:hover, #link:hover {
   top: 54px;
 }
 @media screen and (max-width: 1100px) {
-  .title, section {
+  #ti, section {
     width: 90%;
   }
 }
@@ -134,10 +134,10 @@ button:hover, #link:hover {
     display: block;
     margin: 8px auto;
   }
-  #link {
+  #l {
     margin: 0;
   }
-  .title {
+  #ti {
     padding-bottom: 60px;
   }
 }
@@ -152,18 +152,18 @@ button:hover, #link:hover {
   </style>
   <script>
 function convert() {
-  let input = document.getElementById("input").value;
+  let input = document.getElementById("i").value;
   let id = (input.split("file/d/")[1] ? 
     (input.split("file/d/")[1].split("/view?")[0] ? 
       input.split("file/d/")[1].split("/view?")[0] : 
       null) : 
     null
   )
-  let output = document.getElementById("output");
+  let output = document.getElementById("o");
   let link = id ? "https://drive.google.com/uc?id=" + id : '';
   output.value = link; 
   output.style.backgroundColor = (id ? 'white' : '#c8c8c8')
-  let status = document.getElementById("status");
+  let status = document.getElementById("s");
   status.innerText = (id ? 'Successfully converted' : 
     (input ? 'Invalid link!' : '<Please paste your link above>')
   )
@@ -172,11 +172,11 @@ function convert() {
   )
 }
 function copy() {
-  let output = document.getElementById("output").value
+  let output = document.getElementById("o").value
   navigator.clipboard.writeText(output)
 }
 function del() {
-  document.getElementById("input").value = ''
+  document.getElementById("i").value = ''
   convert()
 }
 function toggle(section, button) {
@@ -188,47 +188,47 @@ function toggle(section, button) {
 }
   </script>
   <span></span>
-  <p class="title"> 
+  <p id="ti"> 
       Google Drive Link Formatter
-      <a href="https://github.com/blloop/gd-link-formatter" target="_blank"><img id="link" src="github.svg"></a>
+      <a href="https://github.com/blloop/gd-link-formatter" target="_blank"><img id="l" src="github.svg"></a>
   </p>
-  <div class="formatter">
+  <div>
       <section>
-          <p class="subtitle"> &lpar;1&rpar; Paste Your Link Here </p>
-          <div class="row">
-              <input type="text" id="input" rows="2" oninput="convert()">
-              <button onclick="del()"><img id="clear" src="clear.svg"></button>
+          <p class="su"> &lpar;1&rpar; Paste Your Link Here </p>
+          <div class="r">
+              <input type="text" id="i" rows="2" oninput="convert()">
+              <button onclick="del()"><img src="clear.svg"></button>
           </div>
       </section>
-      <div id="pointer">
-          <div id="box"></div>
-          <div id="box-2"></div>
-          <div class="triangle triangle-1"></div>
-          <div class="triangle triangle-2"></div>
+      <div id="p">
+          <div id="b1"></div>
+          <div id="b2"></div>
+          <div class="tr t1"></div>
+          <div class="tr t2"></div>
       </div>
       <section>
-          <p class="subtitle"> &lpar;2&rpar; Get Your New Link Here </p>
-          <div class="row">
-              <input type="text" id="output" rows="2" readonly>
-              <button onclick="copy()"><img id="copy" src="copy.svg"></button>
+          <p class="su"> &lpar;2&rpar; Get Your New Link Here </p>
+          <div class="r">
+              <input type="text" id="o" rows="2" readonly>
+              <button onclick="copy()"><img src="copy.svg"></button>
           </div>            
-          <p class="details" id="status"> &lt;Please paste your link above&gt; </p>
+          <p id="s"> &lt;Please paste your link above&gt; </p>
       </section>
-      <section class="small">
-          <p class="subtitle"> How to use this website
-              <b id="arrow-1" data-on="9650" onclick="toggle('about', 'arrow-1')">&#9660;</b> 
+      <section class="s">
+          <p class="su"> How to use this website
+              <b id="a1" data-on="9650" onclick="toggle('ab', 'a1')">&#9660;</b> 
           </p>
-          <div id="about" hidden>
+          <div id="ab" hidden>
               <p> Obtain a share link from your Google Drive media (image / video) and copy
                   it to your clipboard. <br><br> Then, paste it into the first line
                   and the converted link will be automatically generated in the second line. </p>
           </div>
       </section>
-      <section class="small">
-          <p class="subtitle"> About this webpage 
-              <b id="arrow-2" data-on="9650" onclick="toggle('instruct', 'arrow-2')">&#9660;</b> 
+      <section class="s">
+          <p class="su"> About this webpage 
+              <b id="a2" data-on="9650" onclick="toggle('in', 'a2')">&#9660;</b> 
           </p>
-          <div id="instruct" hidden>
+          <div id="in" hidden>
               <p> This webpage formats Google Drive links for you so that their contents
                   can be embedded in external websites. <br><br> For example, formatting a link to 
                   a Google Drive Image allows you to link it to your website without
