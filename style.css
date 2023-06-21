@@ -47,7 +47,8 @@ button {
 }
 
 .small {
-  width: 58%;
+  width: 700px;
+  max-width: 75vw;
 }
 
 .info {
@@ -156,7 +157,6 @@ b {
 @media screen and (max-width: 900px) {
   a {
     display: block;
-    position: inherit;
     margin: 8px auto;
   }
 
