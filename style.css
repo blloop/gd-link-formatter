@@ -70,7 +70,7 @@ button {
   margin-left: calc(min(120px, 10%));
 }
 
-button:hover, .link:hover {
+button:hover, #link:hover {
   background-color: rgb(255, 155, 4);
 }
 
@@ -160,21 +160,17 @@ b {
     margin: 8px auto;
   }
 
-  .link {
+  #link {
     margin: 0;
   }
 
   .title {
     padding-bottom: 60px;
   }
-
-  #instruct p {
-    width: 90%;
-  }
 }
 
 @media screen and (max-width: 500px) {
-  button, #arrow {
+  button {
     display: block;
     position: inherit;
     margin: 8px auto;
