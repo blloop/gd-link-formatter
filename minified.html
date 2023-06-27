@@ -8,7 +8,7 @@
     <title> GDLF </title>
 </head>
 <body>
-  <style>
+<style>
 *{margin:0;padding:0;box-sizing:border-box;font-size:18px;font-family:Verdana, Geneva, Tahoma, sans-serif;}
 html{background-color:#878787;overflow-x:hidden;}
 body{width:1200px;max-width:100vw;min-height:100vh;margin:0 auto;text-align:center;background-color:#9c9c9c;}
@@ -35,44 +35,33 @@ button:hover,#l:hover{background-color:#ff9b04;}
 @media screen and (max-width:1100px){#ti,section{width:90%;}}
 @media screen and (max-width:900px){a{display:block;margin:8px auto;}#l{margin:0;}#ti{padding-bottom:60px;}}
 @media screen and (max-width:500px){button{display:block;position:inherit;margin:8px auto;}}
-  </style>
-  <script>
-function convert() {
-  let input = document.getElementById("i").value;
-  let id = (input.split("file/d/")[1] ? 
-    (input.split("file/d/")[1].split("/view?")[0] ? 
-      input.split("file/d/")[1].split("/view?")[0] : 
-      null) : 
-    null
-  )
-  let output = document.getElementById("o");
-  let link = id ? "https://drive.google.com/uc?id=" + id : '';
-  output.value = link; 
-  output.style.backgroundColor = (id ? 'white' : '#c8c8c8')
-  let status = document.getElementById("s");
-  status.innerText = (id ? 'Successfully converted' : 
-    (input ? 'Invalid link!' : '<Please paste your link above>')
-  )
-  status.style.color = (id ? 'green' : 
-    (input ? 'red' : 'black')
-  )
+</style>
+<script>
+a = () => {
+  let m = document.getElementById("i").value;
+  let d = (m.split("file/d/")[1] ? (m.split("file/d/")[1].split("/view?")[0] ? m.split("file/d/")[1].split("/view?")[0] : null) : null)
+  let n = document.getElementById("o");
+  n.value = d ? "https://drive.google.com/uc?id=" + d : '';
+  n.style.backgroundColor = (d ? 'white' : '#c8c8c8')
+  let s = document.getElementById("s");
+  s.innerText = (d ? 'Successfully converted' : (m ? 'Invalid link!' : '<Please paste your link above>'))
+  s.style.color = (d ? 'green' : (m ? 'red' : 'black'))
 }
-function copy() {
-  let output = document.getElementById("o").value
-  navigator.clipboard.writeText(output)
+b = () => {
+  navigator.clipboard.writeText(document.getElementById("o").value)
 }
-function del() {
-  document.getElementById("i").value = ''
-  convert()
+c = () => {
+  document.getElementById("i").value = ""; 
+  a();
 }
-function toggle(section, button) {
+d = (section, button) => {
   let subtext = document.getElementById(section)
   subtext.hidden = !subtext.hidden
   let arrow = document.getElementById(button)
   arrow.innerHTML = `&#${arrow.dataset.on}`
   arrow.dataset.on = 19310 - arrow.dataset.on
 }
-  </script>
+</script>
   <span></span>
   <p id="ti"> 
       Google Drive Link Formatter
@@ -82,8 +71,9 @@ function toggle(section, button) {
       <section>
           <p class="su"> &lpar;1&rpar; Paste Your Link Here </p>
           <div class="r">
-              <input type="text" id="i" rows="2" oninput="convert()">
-              <button onclick="del()"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IS0tIFVwbG9hZGVkIHRvOiBTVkcgUmVwbywgd3d3LnN2Z3JlcG8uY29tLCBHZW5lcmF0b3I6IFNWRyBSZXBvIE1peGVyIFRvb2xzIC0tPg0KPHN2ZyB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzNnB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQo8cGF0aCBkPSJNOCA4TDE2IDE2IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+DQo8cGF0aCBkPSJNMTYgOEw4IDE2IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+DQo8L3N2Zz4="></button>
+              <input type="text" id="i" rows="2" oninput="a()">              
+              <button onclick='c()'>
+              <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IS0tIFVwbG9hZGVkIHRvOiBTVkcgUmVwbywgd3d3LnN2Z3JlcG8uY29tLCBHZW5lcmF0b3I6IFNWRyBSZXBvIE1peGVyIFRvb2xzIC0tPg0KPHN2ZyB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzNnB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQo8cGF0aCBkPSJNOCA4TDE2IDE2IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+DQo8cGF0aCBkPSJNMTYgOEw4IDE2IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+DQo8L3N2Zz4="></button>
           </div>
       </section>
       <div id="p">
@@ -96,13 +86,14 @@ function toggle(section, button) {
           <p class="su"> &lpar;2&rpar; Get Your New Link Here </p>
           <div class="r">
               <input type="text" id="o" rows="2" readonly>
-              <button onclick="copy()"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IS0tIFVwbG9hZGVkIHRvOiBTVkcgUmVwbywgd3d3LnN2Z3JlcG8uY29tLCBHZW5lcmF0b3I6IFNWRyBSZXBvIE1peGVyIFRvb2xzIC0tPg0KPHN2ZyB3aWR0aD0iMzJweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0ibm9uZSI+DQogIDxwYXRoIGZpbGw9IiMwMDAwMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTQgMmEyIDIgMCAwMC0yIDJ2OWEyIDIgMCAwMDIgMmgydjJhMiAyIDAgMDAyIDJoOWEyIDIgMCAwMDItMlY4YTIgMiAwIDAwLTItMmgtMlY0YTIgMiAwIDAwLTItMkg0em05IDRWNEg0djloMlY4YTIgMiAwIDAxMi0yaDV6TTggOGg5djlIOFY4eiIvPg0KPC9zdmc+"></button>
+              <button onclick='b()'>
+              <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IS0tIFVwbG9hZGVkIHRvOiBTVkcgUmVwbywgd3d3LnN2Z3JlcG8uY29tLCBHZW5lcmF0b3I6IFNWRyBSZXBvIE1peGVyIFRvb2xzIC0tPg0KPHN2ZyB3aWR0aD0iMzJweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0ibm9uZSI+DQogIDxwYXRoIGZpbGw9IiMwMDAwMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTQgMmEyIDIgMCAwMC0yIDJ2OWEyIDIgMCAwMDIgMmgydjJhMiAyIDAgMDAyIDJoOWEyIDIgMCAwMDItMlY4YTIgMiAwIDAwLTItMmgtMlY0YTIgMiAwIDAwLTItMkg0em05IDRWNEg0djloMlY4YTIgMiAwIDAxMi0yaDV6TTggOGg5djlIOFY4eiIvPg0KPC9zdmc+"></button>
           </div>            
           <p id="s"> &lt;Please paste your link above&gt; </p>
       </section>
       <section class="s">
           <p class="su"> How to use this website
-              <b id="a1" data-on="9650" onclick="toggle('ab', 'a1')">&#9660;</b> 
+              <b id="a1" data-on="9650" onclick="d('ab', 'a1')">&#9660;</b> 
           </p>
           <div id="ab" hidden>
               <p> Obtain a share link from your Google Drive media (image / video) and copy
@@ -112,7 +103,7 @@ function toggle(section, button) {
       </section>
       <section class="s">
           <p class="su"> About this webpage 
-              <b id="a2" data-on="9650" onclick="toggle('in', 'a2')">&#9660;</b> 
+              <b id="a2" data-on="9650" onclick="d('in', 'a2')">&#9660;</b> 
           </p>
           <div id="in" hidden>
               <p> This webpage formats Google Drive links for you so that their contents
