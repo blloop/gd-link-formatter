@@ -1,3 +1,5 @@
+const base_url = "https://lh3.google.com/u/0/d/"
+
 // Convert input link to output link
 // Updates output text and status text
 function convert() {
@@ -9,7 +11,7 @@ function convert() {
     null
   );
   let output = document.getElementById("output");
-  let link = id ? "https://drive.google.com/uc?id=" + id : '';
+  let link = id ? base_url + id : '';
   output.value = link; 
   output.style.backgroundColor = (id ? 'white' : '#c8c8c8')
 
